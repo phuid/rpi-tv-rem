@@ -1,6 +1,6 @@
-const { readFileSync, writeFileSync } = require('fs');
-
 var path = require('path');
+
+var bodyParser = require('body-parser');
 
 const express = require('express');
 const { exec } = require('child_process');
@@ -10,15 +10,13 @@ var count;
 var newCount;
 
 app.listen(5000, () => console.log('http://localhost:5000'));
+app.use(bodyParser.json());
 
-app.post('/clicked', (req, res) => {
-  count = readFileSync('./count.txt', 'utf-8');
-  console.log('count ', count)
-
-  newCount = parseInt(count) + 1
-  console.log('newcount', newCount.toString())
-
-  writeFileSync('./count.txt', newCount.toString());
+app.post('/', (req, res) => {
+  if(req.body){
+    var btnname = req.body.btnname
+    console.log(btnname);
+  }
   res.sendStatus(201);
 });
 

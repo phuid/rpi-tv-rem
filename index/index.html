@@ -104,6 +104,8 @@
     </div>
   </div>
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     function numsdisplay() {
       if (window.matchMedia("(orientation: portrait)"))
@@ -124,6 +126,12 @@
         nums_btn.style.backgroundColor = "var(--button-pressed)";
       }
     }
+
+    $('.clickMe').click(function(){
+      request.setRequestHeader("Content-Type", "text/plain; charset=UTF-8");
+      request.open("POST", "/", true);
+      request.send("btn-name=", this.id); 
+    });
   </script>
 </body>
 
