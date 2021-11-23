@@ -150,6 +150,7 @@ button:active {
 
 #mute {
   grid-area: mute;
+  background-color: black;
 }
 
 #ch {
