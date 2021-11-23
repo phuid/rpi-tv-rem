@@ -117,6 +117,7 @@
         nums.style.display = "none"
         nums.style.gridArea = "";
         nums_btn.style.backgroundColor = "";
+        nums_btn.style.color = "";
         document.querySelector('.container').classList.toggle("container-hidenums");
         // container.style.gridTemplateAreas = "'power-btn blank source-btn' 'vol guide ch' 'vol home ch' 'dpad dpad dpad' 'dpad dpad dpad' 'dpad dpad dpad' 'return blnk exit' 'misc misc misc' 'misc misc misc' 'misc misc misc'";
       }
@@ -124,14 +125,59 @@
         document.querySelector('.container').classList.toggle("container-hidenums");
         nums.style.display = "block";
         nums.style.gridArea = "nums";
-        nums_btn.style.backgroundColor = "var(--button-pressed)";
+        nums_btn.style.backgroundColor = "var(--blue-accent)";
+        nums_btn.style.color = "var(--main-bg-color)";
       }
     }
+
+    const map = new Map([
+    ['power-btn', 'KEY_POWER'],
+    ['source-btn', 'KEY_TV'],
+    ['vol-up', 'KEY_VOLUMEUP'],
+    ['vol-down', 'KEY_VOLUMEDOWN'],
+    ['mute', 'KEY_MUTE'],
+    ['ch', 'CH_LIST'],
+    ['ch-up', 'KEY_CHANNELUP'],
+    ['ch-down', 'KEY_CHANNELDOWN'],
+    ['A', 'KEY_RED'],
+    ['B', 'KEY_GREEN'],
+    ['C', 'KEY_YELLOW'],
+    ['D', 'KEY_BLUE'],
+    ['settings', 'TOOLS'],
+    ['info', 'KEY_INFO'],
+    ['subt', 'subt----------------------------'],
+    ['stop', 'STOP'],
+    ['last', 'KEY_REWIND'],
+    ['play', 'KEY_PLAY'],
+    ['pause', 'KEY_PAUSE'],
+    ['next', 'KEY_FORWARD'],
+    ['1', 'KEY_1'],
+    ['2', 'KEY_2'],
+    ['3', 'KEY_3'],
+    ['4', 'KEY_4'],
+    ['5', 'KEY_5'],
+    ['6', 'KEY_6'],
+    ['7', 'KEY_7'],
+    ['8', 'KEY_8'],
+    ['9', 'KEY_9'],
+    ['ttx', 'TTX/MIX'],
+    ['0', 'KEY_0'],
+    ['prech', 'KEY_CHANNEL'],
+    ['home', 'KEY_MENU'],
+    ['up', 'KEY_UP'],
+    ['guide', 'MEDIA.P'],
+    ['left', 'KEY_LEFT'],
+    ['right', 'KEY_RIGHT'],
+    ['enter', 'KEY_ENTER'],
+    ['return', 'KEY_BACK'],
+    ['down', 'KEY_DOWN'],
+    ['exit', 'KEY_EXIT']
+]);
 
     $(':button').click(function () {
       console.log(this.id);
       if (this.id != "nums-btn") {
-        data = { "btnname": this.id };
+        data = { "btnname": map.get(this.id) };
         fetch('/', {
           method: 'POST',
           headers: {

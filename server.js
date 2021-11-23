@@ -11,7 +11,8 @@ app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
   if(req.body){
-    console.log(req.body.btnname);
+    console.log("irsend SEND_ONCE Samsung_BN59-01224C " + req.body.btnname);
+    exec("irsend SEND_ONCE Samsung_BN59-01224C " + req.body.btnname);
   }
   res.sendStatus(202);
 });

@@ -85,6 +85,11 @@
   #nums {
     display: none;
   }
+
+  #vol button, #ch button {
+    aspect-ratio: 2/3;
+  }
+
 }
 
 button {
@@ -115,7 +120,7 @@ button:active {
   grid-area: power-btn;
 }
 
-#power {
+#power-btn {
   color: var(--red-accent);
 }
 
@@ -133,6 +138,10 @@ button:active {
 
 #nums {
   grid-area: nums;
+}
+
+#nums-btn {
+  color: var(--blue-accent);
 }
 
 #nums table {
@@ -157,8 +166,8 @@ button:active {
 }
 
 #vol button, #ch button {
-  aspect-ratio: auto;
-  height: 90%;
+  /* aspect-ratio: auto; */
+  /* height: 90%; */
 }
 
 #mute {
