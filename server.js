@@ -6,18 +6,14 @@ const express = require('express');
 const { exec } = require('child_process');
 const app = express();
 
-var count;
-var newCount;
-
 app.listen(5000, () => console.log('http://localhost:5000'));
 app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
   if(req.body){
-    var btnname = req.body.btnname
-    console.log(btnname);
+    console.log(req.body.btnname);
   }
-  res.sendStatus(201);
+  res.sendStatus(202);
 });
 
 app.get('/style.css', function(req, res) {
