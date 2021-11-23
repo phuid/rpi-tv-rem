@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tv remote</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="border container container-hidenums">
+    <div class="border" id="power"><button id="power-btn">power</button></div>
+    <div class="border" id="nums-display"><button id="nums-btn" onclick="numsdisplay()">show nums</button></div>
+    <div class="border" id="source"><button id="source-btn">source</button></div>
+    <div class="border" id="nums">
+      <table>
+        <tr>
+          <td><button id="1">1</button></td>
+          <td><button id="2">2</button></td>
+          <td><button id="3">3</button></td>
+        </tr>
+        <tr>
+          <td><button id="4">4</button></td>
+          <td><button id="5">5</button></td>
+          <td><button id="6">6</button></td>
+        </tr>
+        <tr>
+          <td><button id="7">7</button></td>
+          <td><button id="8">8</button></td>
+          <td><button id="9">9</button></td>
+        </tr>
+        <tr>
+          <td><button id="ttx">ttx</button></td>
+          <td><button id="0">0</button></td>
+          <td><button id="prech">prev ch</button></td>
+        </tr>
+      </table>
+    </div>
+    <table id="vol">
+      <tr>
+        <td><button id="vol-up">up</button></td>
+      </tr>
+      <tr>
+        <td><button id="vol-down">down</button></td>
+      </tr>
+    </table>
+    <button id="mute">mute</button>
+
+    <div class="border" id="misc">
+      <table>
+        <tr>
+          <td><button id="A">A</button></td>
+          <td><button id="B">B</button></td>
+          <td><button id="C">C</button></td>
+          <td><button id="D">D</button></td>
+        </tr>
+        <tr>
+          <td><button id="settings">settings</button></td>
+          <td><button id="info">info</button></td>
+          <td><button id="subt">ad/subt</button></td>
+          <td><button id="stop">stop</button></td>
+        </tr>
+        <tr>
+          <td><button id="last">last</button></td>
+          <td><button id="play">play</button></td>
+          <td><button id="pause">pause</button></td>
+          <td><button id="next">next</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <table id="ch">
+      <tr>
+        <td><button id="ch-up">up</button></td>
+      </tr>
+      <tr>
+        <td><button id="ch-down">down</button></td>
+      </tr>
+    </table>
+    <button id="chlist">ch</button>
+    
+
+
+    <div class="border" id="dpad">
+      <table>
+        <tr>
+          <td><button id="home">home</button></td>
+          <td><button id="up">up</button></td>
+          <td><button id="guide">guide</button></td>
+        </tr>
+        <tr>
+          <td><button id="left">left</button></td>
+          <td><button id="enter">enter</button></td>
+          <td><button id="right">right</button></td>
+        </tr>
+        <tr>
+          <td><button id="return">return</button></td>
+          <td><button id="down">down</button></td>
+          <td><button id="exit">exit</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  </div>
+  <script>
+    function numsdisplay() {
+      if (window.matchMedia("(orientation: portrait)"))
+        var nums = document.getElementById("nums");
+      var nums_btn = document.getElementById("nums-btn");
+      var container = document.getElementById("contaner");
+      if (nums.style.display == "block") {
+        nums.style.display = "none"
+        nums.style.gridArea = "";
+        nums_btn.style.backgroundColor = "";
+        document.querySelector('.container').classList.toggle("container-hidenums");
+        // container.style.gridTemplateAreas = "'power-btn blank source-btn' 'vol guide ch' 'vol home ch' 'dpad dpad dpad' 'dpad dpad dpad' 'dpad dpad dpad' 'return blnk exit' 'misc misc misc' 'misc misc misc' 'misc misc misc'";
+      }
+      else {
+        document.querySelector('.container').classList.toggle("container-hidenums");
+        nums.style.display = "block";
+        nums.style.gridArea = "nums";
+        nums_btn.style.backgroundColor = "var(--button-pressed)";
+      }
+    }
+  </script>
+</body>
+
+</html>

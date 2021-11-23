@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+:root {
+  --button-bg-color: hsl(216, 23%, 14%);
+  --main-bg-color: hsl(216, 23%, 19%);
+  --green-accent: hsl(95, 40%, 65%);
+  --red-accent: hsl(6, 88%, 63%);
+  --blue-accent: hsl(220, 100%, 68%);
+  background-color: var(--main-bg-color);
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  color: var(--green-accent);
+}
+
+@keyframes click {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+#container {
+  display: -ms-grid;
+  display: grid;
+  position: absolute;
+  border: 2px solid black;
+  margin: 0;
+  padding: 10px;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+#power-btn {
+  grid-area: power-btn;
+}
+
+#source-btn {
+  grid-area: source-btn;
+}
+
+#guide {
+  grid-area: guide;
+}
+
+#home {
+  grid-area: home;
+}
+
+#up {
+  grid-area: up;
+}
+
+#nums {
+  grid-area: nums;
+  height: 100%;
+}
+
+#vol {
+  grid-area: vol;
+  background-color: var(--blue-accent);
+  border-radius: 10%;
+}
+
+#ch {
+  grid-area: ch;
+  background-color: var(--blue-accent);
+  border-radius: 10%;
+}
+
+#left {
+  grid-area: left;
+}
+
+#enter {
+  grid-area: enter;
+}
+
+#right {
+  grid-area: right;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10%;
+  border: none;
+}
+
+button:active {
+  animation: click 1s;
+}
+
+#nums button, #vol button, #ch button {
+  width: 100%;
+  height: 100%;
+  background-color: var(--button-bg-color);
+  color: var(--green-accent);
+}
+
+#vol svg, #ch svg {
+    height: 30%;
+    width: 30%;
+}
+
+@media (orientation: landscape) {
+  #container {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (orientation: portrait) {
+  #container {
+    aspect-ratio: 3/13;
+
+    -ms-grid-template-rows: calc(100%/13);
+    grid-template-rows: calc(100%/13);
+    grid-template-areas:
+      "power-btn power-btn source-btn"
+      "nums nums nums"
+      "nums nums nums"
+      "nums nums nums"
+      "nums nums nums"
+      "vol guide ch"
+      "vol home ch"
+      "vol up ch"
+      "left enter right"
+      "return down exit"
+      "adv adv adv"
+      "adv adv adv"
+      "adv adv adv";
+  }
+/* 
+  #vol, #ch, #guide, #home {
+    width: calc(90vw/3);
+  }
+
+  #vol {
+    position: unset;
+    top: calc(300%/13);
+  } */
+}

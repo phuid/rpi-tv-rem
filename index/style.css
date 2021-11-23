@@ -1,0 +1,195 @@
+:root {
+  --button-bg-color: hsl(216, 23%, 14%);
+  --button-pressed: hsla(6, 88%, 63%, 0.301);
+  --main-bg-color: hsl(216, 23%, 19%);
+  --green-accent: hsl(95, 40%, 65%);
+  --red-accent: hsl(6, 88%, 63%);
+  --blue-accent: hsl(220, 100%, 68%);
+  background-color: var(--main-bg-color);
+}
+
+.border {
+  /* border: 1px solid blue; */
+}
+
+@media (orientation: landscape) {
+  .container {
+    width: 100vw;
+    height: 97vh;
+    overflow: hidden;
+  }
+
+}
+
+@media (orientation: portrait) {
+  .container {
+    aspect-ratio: 10/16;
+
+    grid-template-areas:
+      "power-btn power-btn blank source-btn nums-display nums-display"
+      "power-btn power-btn blank source-btn nums-display nums-display"
+      "power-btn power-btn blank source-btn nums-display nums-display"
+      "nums nums nums nums nums nums"
+      "nums nums nums nums nums nums"
+      "nums nums nums nums nums nums"
+      "nums nums nums nums nums nums"
+      "nums nums nums nums nums nums"
+      "nums nums nums nums nums nums"
+      "nums nums nums nums nums nums"
+      "nums nums nums nums nums nums"
+      "nums nums nums nums nums nums"
+      "vol vol mute chlist ch ch"
+      "vol vol mute chlist ch ch"
+      "vol vol misc misc ch ch"
+      "vol vol misc misc ch ch"
+      "vol vol misc misc ch ch"
+      "vol vol misc misc ch ch"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad";
+
+    -ms-grid-template-columns: 20%;
+    grid-template-columns: 20%;
+  }
+
+  .container-hidenums {
+    aspect-ratio: 13/16;
+
+    grid-template-areas:
+      "power-btn power-btn blank source-btn nums-display nums-display"
+      "power-btn power-btn blank source-btn nums-display nums-display"
+      "power-btn power-btn blank source-btn nums-display nums-display"
+      "vol vol mute chlist ch ch"
+      "vol vol mute chlist ch ch"
+      "vol vol misc misc ch ch"
+      "vol vol misc misc ch ch"
+      "vol vol misc misc ch ch"
+      "vol vol misc misc ch ch"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad"
+      "dpad dpad dpad dpad dpad dpad";
+  }
+
+  #nums {
+    display: none;
+  }
+
+}
+
+button {
+  width: 100%;
+  /* height: 100%; */
+  background-color: var(--button-bg-color);
+  border: 0;
+  color: var(--green-accent);
+  border-radius: 30%;
+  aspect-ratio: 1;
+}
+
+button:active {
+  background-color: var(--button-pressed);
+}
+
+.container {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+}
+
+#power {
+  grid-area: power-btn;
+}
+
+#power button {
+  color: var(--red-accent);
+}
+
+#nums-display {
+  grid-area: nums-display;
+}
+
+#source {
+  grid-area: source-btn;
+}
+
+#nums {
+  grid-area: nums;
+}
+
+#nums table {
+  width: 100%;
+  height: 100%;
+}
+
+#nums td {
+  height: 25%;
+  width: 33.3%;
+}
+
+#nums button {
+  color: var(--blue-accent);
+  border-radius: 100%;
+}
+
+#vol {
+  grid-area: vol;
+  height: 100%;
+}
+
+#mute {
+  grid-area: mute;
+}
+
+#ch {
+  grid-area: ch;
+  height: 100%;
+}
+
+#chlist {
+  grid-area: chlist;
+}
+
+#misc {
+  grid-area: misc;
+}
+
+#misc table {
+  width: 100%;
+  height: 100%;
+}
+
+#misc td {
+  width: calc(100%/4);
+  height: calc(100%/3);
+}
+
+#misc button {
+  height: 100%;
+  width: 100%;
+}
+
+#dpad {
+  grid-area: dpad;
+}
+
+#dpad table {
+  width: 100%;
+  height: 100%;
+}
+
+#dpad td {
+  height: 25%;
+  width: 33.3%;
+}
