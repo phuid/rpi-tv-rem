@@ -85,7 +85,6 @@
   #nums {
     display: none;
   }
-
 }
 
 button {
@@ -95,7 +94,7 @@ button {
   border: 0;
   color: var(--green-accent);
   border-radius: 30%;
-  aspect-ratio: 1;
+  /* aspect-ratio: 1; */
 }
 
 button:active {
@@ -108,11 +107,15 @@ button:active {
   display: grid;
 }
 
+.square {
+  aspect-ratio: 1;
+}
+
 #power {
   grid-area: power-btn;
 }
 
-#power button {
+#power {
   color: var(--red-accent);
 }
 
@@ -122,6 +125,10 @@ button:active {
 
 #source {
   grid-area: source-btn;
+}
+
+#source-btn {
+  aspect-ratio: 16/9;
 }
 
 #nums {
@@ -141,11 +148,17 @@ button:active {
 #nums button {
   color: var(--blue-accent);
   border-radius: 100%;
+  aspect-ratio: 1;
 }
 
 #vol {
   grid-area: vol;
   height: 100%;
+}
+
+#vol button, #ch button {
+  aspect-ratio: auto;
+  height: 90%;
 }
 
 #mute {
@@ -192,4 +205,7 @@ button:active {
 #dpad td {
   height: 25%;
   width: 33.3%;
+}
+#dpad button {
+  aspect-ratio: 1;
 }

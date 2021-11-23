@@ -11,8 +11,9 @@
 
 <body>
   <div class="border container container-hidenums">
-    <div class="border" id="power"><button id="power-btn">power</button></div>
-    <div class="border" id="nums-display"><button id="nums-btn" onclick="numsdisplay()">show nums</button></div>
+    <div class="border" id="power"><button class="square" id="power-btn">power</button></div>
+    <div class="border" id="nums-display"><button class="square" id="nums-btn" onclick="numsdisplay()">show
+        nums</button></div>
     <div class="border" id="source"><button id="source-btn">source</button></div>
     <div class="border" id="nums">
       <table>
@@ -129,23 +130,25 @@
 
     $(':button').click(function () {
       console.log(this.id);
-      data = { "btnname" : this.id };
-      fetch('/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        //Then with the data from the response in JSON...
-        .then((data) => {
-          console.log('Success:', data);
+      if (this.id != "nums-btn") {
+        data = { "btnname": this.id };
+        fetch('/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
         })
-        //Then with the error genereted...
-        .catch((error) => {
-          console.error('Error:', error);
-        });
+          .then((response) => response.json())
+          //Then with the data from the response in JSON...
+          .then((data) => {
+            console.log('Success:', data);
+          })
+          //Then with the error genereted...
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      }
     });
   </script>
 </body>
