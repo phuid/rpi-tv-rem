@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
   if(req.body){
-    console.log("irsend SEND_ONCE Samsung_BN59-01224C " + req.body.btnname);
-    exec("irsend SEND_ONCE Samsung_BN59-01224C " + req.body.btnname);
+    console.log("irsend SEND_ONCE Samsung_BN59-01315B " + req.body.btnname);
+    exec("irsend SEND_ONCE Samsung_BN59-01315B " + req.body.btnname);
   }
   res.sendStatus(202);
 });
@@ -58,5 +58,3 @@ app.get('/', (req, res) => {
 	// 	</html>
 	// `);
 });
-
-
